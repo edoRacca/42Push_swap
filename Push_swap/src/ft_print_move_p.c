@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_err.c                                     :+:      :+:    :+:   */
+/*   ft_print_move_p.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eraccane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 13:17:07 by eraccane          #+#    #+#             */
-/*   Updated: 2023/06/17 13:17:08 by eraccane         ###   ########.fr       */
+/*   Updated: 2023/06/30 11:10:02 by eraccane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void    ft_print_pa(void)
+void	ft_print_pa(void)
 {
-    ft_printf("pa\n");
+	ft_printf("pa\n");
 }
 
-void    ft_print_pb(void)
+void	ft_print_pb(void)
 {
-    ft_printf("pb\n");
+	ft_printf("pb\n");
 }

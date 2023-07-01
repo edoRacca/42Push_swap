@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eraccane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 11:50:24 by eraccane          #+#    #+#             */
-/*   Updated: 2023/06/17 11:50:26 by eraccane         ###   ########.fr       */
+/*   Updated: 2023/06/30 12:21:42 by eraccane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,59 +15,65 @@
 
 # include "ft_printf/includes/ft_printf.h"
 
-typedef struct {
-    int     size;
-    int     top;
-    int     capacity;
-    int*    collection;
-} Stack;
+typedef struct Stack_node{
+	int					value;
+	int					position;
+	int					move_price;
+	int					above_middle;
+	int					cheapest;
+	struct Stack_node	*next;
+	struct Stack_node	*prev;
+}	t_Stack_node;
 
-int	    ft_check_err(int n, char *s[]);
-int	    ft_check_str(int n, char *s[]);
-int	    ft_check_dup(int n, char *s[]);
-int     ft_check_bigint(int n, char *s[]);
+int				ft_check_err(int n, char *s[]);
+int				ft_check_str(int n, char *s[]);
+int				ft_check_dup(int n, char *s[]);
+int				ft_check_bigint(int n, char *s[]);
 
-void    ft_push_swap(int n, char *s[]);
-void    ft_start_swap(Stack *a, Stack *b);
+void			ft_push_swap(int n, char *s[]);
+void			ft_start_swap(t_Stack_node *a, t_Stack_node *b);
+void			ft_sort_2(t_Stack_node *a);
+void			ft_sort_all(t_Stack_node *a, t_Stack_node *b);
 
-void    ft_sort_3(Stack *a);
-void    ft_sort_all(Stack *a, Stack *b);
+void			ft_sort_3(t_Stack_node *a);
+void			ft_one_middle(t_Stack_node *a);
+void			ft_three_middle(t_Stack_node *a);
 
-int     ft_check_sorted(Stack *stack);
+int				ft_check_sorted(t_Stack_node *stack);
 
-Stack   *ft_createStack(int capacity);
-void    ft_freeStack(Stack *stack);
-int     ft_isFull(Stack *stack);
-int     ft_isEmpty(Stack *stack);
-int     ft_push(Stack *stack, int n);
-int     ft_pop(Stack *stack);
-void    ft_print_stack(Stack *stack); //solo per fase di test
+t_Stack_node	*ft_create_stack(int capacity);
+void			ft_free_stack(t_Stack_node *stack);
+int				ft_is_full(t_Stack_node *stack);
+int				ft_is_empty(t_Stack_node *stack);
+int				ft_push(t_Stack_node *stack, int n);
+int				ft_pop(t_Stack_node *stack);
+void			ft_print_stack_node(t_Stack_node *stack);
 
-void    ft_sa(Stack *a);
-void    ft_sb(Stack *b);
-void    ft_ss(Stack *a, Stack *b);
+void			ft_sa(t_Stack_node *a);
+void			ft_sb(t_Stack_node *b);
+void			ft_ss(t_Stack_node *a, t_Stack_node *b);
 
-void    ft_pa(Stack *a, Stack *b);
-void    ft_pb(Stack *a, Stack *b);
+void			ft_pa(t_Stack_node *a, t_Stack_node *b);
+void			ft_pb(t_Stack_node *a, t_Stack_node *b);
 
-void    ft_ra(Stack *a);
-void    ft_rb(Stack *b);
-void    ft_rr(Stack *a, Stack *b);
+void			ft_ra(t_Stack_node *a);
+void			ft_rb(t_Stack_node *b);
+void			ft_rr(t_Stack_node *a, t_Stack_node *b);
 
-void    ft_rra(Stack *a);
-void    ft_rrb(Stack *b);
-void    ft_rrr(Stack *a, Stack *b);
+void			ft_rra(t_Stack_node *a);
+void			ft_rrb(t_Stack_node *b);
+void			ft_rrr(t_Stack_node *a, t_Stack_node *b);
 
-void    ft_print_sa(void);
-void    ft_print_sb(void);
-void    ft_print_ss(void);
-void    ft_print_pa(void);
-void    ft_print_pb(void);
-void    ft_print_ra(void);
-void    ft_print_rb(void);
-void    ft_print_rr(void);
-void    ft_print_rra(void);
-void    ft_print_rrb(void);
-void    ft_print_rrr(void);
+void			ft_print_sa(void);
+void			ft_print_sb(void);
+void			ft_print_ss(void);
+void			ft_print_pa(void);
+void			ft_print_pb(void);
+void			ft_print_ra(void);
+void			ft_print_rb(void);
+void			ft_print_rr(void);
+void			ft_print_rra(void);
+void			ft_print_rrb(void);
+void			ft_print_rrr(void);
 
 #endif

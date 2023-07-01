@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_sort_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eraccane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/17 11:50:32 by eraccane          #+#    #+#             */
-/*   Updated: 2023/06/17 11:50:36 by eraccane         ###   ########.fr       */
+/*   Created: 2023/06/30 11:13:06 by eraccane          #+#    #+#             */
+/*   Updated: 2023/06/30 11:13:13 by eraccane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-
-
-void ft_sort_all(Stack *a, Stack *b)
+void	ft_sort_all(t_Stack *a, t_Stack *b)
 {
-    int i;
-    int maxChunk;
-    int minChunk;
-    int hold1;
-    int hold2;
-
-    maxChunk = a->size;
-    minChunk = 0;
+	(void)a;
+	(void)b;
 }

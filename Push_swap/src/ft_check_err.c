@@ -6,13 +6,13 @@
 /*   By: eraccane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 13:17:07 by eraccane          #+#    #+#             */
-/*   Updated: 2023/06/17 13:17:08 by eraccane         ###   ########.fr       */
+/*   Updated: 2023/06/30 11:08:13 by eraccane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-int ft_check_space(char *s)
+int	ft_check_space(char *s)
 {
 	int	i;
 
@@ -25,14 +25,16 @@ int ft_check_space(char *s)
 	return (0);
 }
 
-int ft_check_bigint(int n, char *s[])
+int	ft_check_bigint(int n, char *s[])
 {
-	int	i;
+	int		i;
+	long	nbr;
 
 	i = 1;
 	while (i < n)
 	{
-		if (ft_atoi(s[i]) >= 2147483647 || ft_atoi(s[i]) <= -2147483648)
+		nbr = ft_atoi(s[i]);
+		if (nbr > 2147483647 || nbr < -2147483648)
 			return (1);
 		i++;
 	}
@@ -76,7 +78,7 @@ int	ft_check_str(int n, char *s[])
 				return (1);
 			while (s[i][j])
 			{
-				if ((ft_isalpha(s[i][j]) == 1) || s[i][j] == 48)
+				if (ft_isalpha(s[i][j]) == 1)
 					return (1);
 				j++;
 			}
@@ -89,7 +91,8 @@ int	ft_check_str(int n, char *s[])
 //check all error types
 int	ft_check_err(int n, char *s[])
 {
-	if ((ft_check_str(n, s) == 1) || (ft_check_dup(n, s) == 1) || (ft_check_bigint(n, s) == 1))
+	if ((ft_check_str(n, s) == 1) || (ft_check_dup(n, s) == 1) || 
+		(ft_check_bigint(n, s) == 1))
 		return (1);
 	return (0);
 }
