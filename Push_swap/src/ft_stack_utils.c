@@ -38,11 +38,14 @@ int	ft_stacklen(t_Stack_node *stack)
 
 void	ft_print_stack(t_Stack_node *stack)
 {
-	stack = ft_find_last(stack);
+	int	i;
+	
+	i = 0;
 	while (stack)
 	{
-		ft_printf("%d\n",stack->value);
-		stack = stack->prev;
+		ft_printf("stack[%d]:\t%d\n", i, stack->value);
+		stack = stack->next;
+		i++;
 	}
 }
 

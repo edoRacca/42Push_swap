@@ -50,6 +50,7 @@ void	ft_free_stack(t_Stack_node *stack)
 		free(stack);
 		stack = temp;
 	}
+	stack = NULL;
 }
 
 //1 if is empty
@@ -58,13 +59,28 @@ int	ft_is_empty(t_Stack_node *stack)
 	return (!stack);
 }
 
-void	ft_pop_node(t_Stack_node **stack)
+int	ft_push_node(t_Stack_node **pushed, t_Stack_node **popped)
 {
 	t_Stack_node	*node;
 
-	if (ft_is_empty(*stack))
-		return ;
-	node = *stack;
-	*stack = (*stack)->next;
-	free(node);
+	if (pushed == NULL)
+		return (0);
+	node = *popped;
+	*popped = (*popped)->next;
+	if (*popped)
+		(*popped)->prev = NULL;
+	node->prev = NULL;
+	// if (*pushed == NULL)
+	// {
+	// 	*pushed = node;
+	// 	node->next = NULL;
+	// }
+	// else
+	// {
+	// 	node->next = *pushed;
+	// 	node->next->prev = node;
+	// 	*pushed = node;
+	// }
+	ft_add_node(pushed, node->value);
+	return (1);
 }

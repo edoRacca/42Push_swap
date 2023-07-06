@@ -48,7 +48,7 @@ int				ft_check_sorted(t_Stack_node *stack);
 void			ft_add_node(t_Stack_node **stack, int value);
 void			ft_free_stack(t_Stack_node *stack);
 int				ft_is_empty(t_Stack_node *stack);
-void			ft_pop_node(t_Stack_node **stack);
+int				ft_push_node(t_Stack_node **pushed, t_Stack_node **popped);
 
 void			ft_print_sa(void);
 void			ft_print_sb(void);
