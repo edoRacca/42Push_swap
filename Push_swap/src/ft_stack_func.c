@@ -12,39 +12,59 @@
 
 #include "../ft_push_swap.h"
 
-t_Stack	*ft_create_stack(int capacity)
+void	ft_add_node(t_Stack_node **stack, int value)
 {
-	t_Stack	*stack; 
+	t_Stack_node	*node;
+	t_Stack_node	*last;
 
-	stack = (t_Stack *)malloc(sizeof(t_Stack));
-	stack->collection = (int *)malloc(capacity * sizeof(int));
-	if (stack->collection == NULL)
+	if (stack == NULL)
+		return ;
+	node = malloc(sizeof(t_Stack_node));
+	if (node == NULL)
+		return ;
+	node->next = NULL;
+	node->value = value;
+	if (*stack == NULL)
 	{
-		free(stack);
-		return (NULL);
+		*stack = node;
+		node->prev = NULL;
 	}
-	stack->capacity = capacity;
-	stack->size = 0;
-	stack->top = -1;
-	return (stack);
+	else
+	{
+		last = ft_find_last(*stack);
+		last->next = node;
+		node->prev = last;
+	}	
 }
 
-void	ft_free_stack(t_Stack *stack)
+void	ft_free_stack(t_Stack_node *stack)
 {
-	free(stack->collection);
-	free(stack);
+	t_Stack_node *temp;
+
+	temp = NULL;
+	if (stack == NULL)
+		return ;
+	while (stack)
+	{
+		temp = stack->next;
+		free(stack);
+		stack = temp;
+	}
 }
 
-int	ft_is_full(t_Stack *stack)
+//1 if is empty
+int	ft_is_empty(t_Stack_node *stack)
 {
-	if (stack->capacity == stack->size)
-		return (1);
-	return (0);
+	return (!stack);
 }
 
-int	ft_is_empty(t_Stack *stack)
+void	ft_pop_node(t_Stack_node **stack)
 {
-	if (stack->size == 0)
-		return (1);
-	return (0);
+	t_Stack_node	*node;
+
+	if (ft_is_empty(*stack))
+		return ;
+	node = *stack;
+	*stack = (*stack)->next;
+	free(node);
 }

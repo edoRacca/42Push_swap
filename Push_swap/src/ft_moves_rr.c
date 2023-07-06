@@ -12,58 +12,22 @@
 
 #include "../ft_push_swap.h"
 
-void	ft_rra(t_Stack *a)
+void	ft_rra(t_Stack_node *a)
 {
-	int	i;
-	int	temp;
-
-	i = 0;
-	while (i < a->size - 1)
-	{
-		temp = a->collection[(i % a->top) + 1];
-		a->collection[(i % a->top) + 1] = a->collection[i % a->top];
-		a->collection[i % a->top] = temp;
-		i++;
-	}
+	(void)a;
 	ft_print_rra();
 }
 
-void	ft_rrb(t_Stack *b)
+void	ft_rrb(t_Stack_node *b)
 {
-	int	i;
-	int	temp;
-
-	i = 0;
-	while (i < b->size - 1)
-	{
-		temp = b->collection[(i % b->top) + 1];
-		b->collection[(i % b->top) + 1] = b->collection[i % b->top];
-		b->collection[i % b->top] = temp;
-		i++;
-	}
+	
+	(void)b;
 	ft_print_rrb();
 }
 
-void	ft_rrr(t_Stack *a, t_Stack *b)
+void	ft_rrr(t_Stack_node *a, t_Stack_node *b)
 {
-	int	i;
-	int	temp;
-
-	i = 0;
-	while (i < a->size - 1)
-	{
-		temp = a->collection[(i % a->top) + 1];
-		a->collection[(i % a->top) + 1] = a->collection[i % a->top];
-		a->collection[i % a->top] = temp;
-		i++;
-	}
-	i = 0;
-	while (i < b->size - 1)
-	{
-		temp = b->collection[(i % b->top) + 1];
-		b->collection[(i % b->top) + 1] = b->collection[i % b->top];
-		b->collection[i % b->top] = temp;
-		i++;
-	}
+	(void)a;
+	(void)b;
 	ft_print_rrr();
 }

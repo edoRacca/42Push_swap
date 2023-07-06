@@ -15,16 +15,6 @@
 //1 se ordinato
 int	ft_check_sorted(t_Stack_node *stack)
 {
-	int	i;
-
-	i = 1;
-	if (stack->size == 1)
-		return (0);
-	while (i < stack->size)
-	{
-		if (stack->collection[i - 1] < stack->collection[i])
-			return (0);
-		i++;
-	}
+	(void)stack;
 	return (1);
 }

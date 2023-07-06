@@ -12,7 +12,7 @@
 
 #include "../ft_push_swap.h"
 
-void	ft_sort_all(t_Stack *a, t_Stack *b)
+void	ft_sort_all(t_Stack_node *a, t_Stack_node *b)
 {
 	(void)a;
 	(void)b;

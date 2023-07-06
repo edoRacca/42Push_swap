@@ -12,40 +12,31 @@
 
 #include "../ft_push_swap.h"
 
-void	ft_sort_2(t_Stack_node *a)
+void	ft_init(t_Stack_node **stack, int n, char *s[])
 {
-	if (ft_check_sorted(a) == 0)
-		ft_sa(a);
-}
-
-void	ft_start_swap(t_Stack_node *a, t_Stack_node *b)
-{
-	// if (a->size == 2)
-	// 	ft_sort_2(a);
-	// else if (a->size == 3)
-	// 	ft_sort_3(a);
-	// else
-	// 	ft_sort_all(a, b);
+	int	i;
+	int	j;
+	
+	i = 1;
+	j = n - 1;
+	while (i < n)
+	{
+		ft_add_node(stack, ft_atoi(s[j]));
+		i++;
+		j--;
+	}
 }
 
 void	ft_push_swap(int n, char *s[])
 {
 	t_Stack_node	*a;
 	t_Stack_node	*b;
-	int		i;
-	int		j;
 
 	a = NULL;
 	b = NULL;
-	i = 0;
-	j = n - 1;
-	while (i < a->capacity)
-	{
-		ft_push(a, ft_atoi(s[j]));
-		i++;
-		j--;
-	}
-	ft_start_swap(a, b);
+	ft_init(&a, n, s);
+	// ft_start_swap(a, b);
+	ft_print_stack(a);
 	ft_free_stack(a);
 	ft_free_stack(b);
 }

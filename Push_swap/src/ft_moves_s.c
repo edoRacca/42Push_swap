@@ -12,56 +12,21 @@
 
 #include "../ft_push_swap.h"
 
-void	ft_sa(t_Stack *a)
+void	ft_sa(t_Stack_node *a)
 {
-	int	temp;
-
-	if (a->size >= 1)
-	{
-		temp = a->collection[a->top];
-		a->collection[a->top] = a->collection[a->top - 1];
-		a->collection[a->top - 1] = temp;
-	}
+	(void)a;
 	ft_print_sa();
 }
 
-void	ft_sb(t_Stack *b)
+void	ft_sb(t_Stack_node *b)
 {
-	int	temp;
-
-	if (b->size >= 1)
-	{
-		temp = b->collection[b->top];
-		b->collection[b->top] = b->collection[b->top - 1];
-		b->collection[b->top - 1] = temp;
-	}
+	(void)b;
 	ft_print_sb();
 }
 
-void	ft_ss(t_Stack *a, t_Stack *b)
+void	ft_ss(t_Stack_node *a, t_Stack_node *b)
 {
-	int	temp;
-
-	if (a->size <= 1)
-	{
-		temp = b->collection[b->top];
-		b->collection[b->top] = b->collection[b->top - 1];
-		b->collection[b->top - 1] = temp;
-	}
-	if (b->size <= 1)
-	{
-		temp = a->collection[a->top];
-		a->collection[a->top] = a->collection[a->top - 1];
-		a->collection[a->top - 1] = temp;
-	}
-	if (b->size >= 1 && a->size >= 1)
-	{
-		temp = b->collection[b->top];
-		b->collection[b->top] = b->collection[b->top - 1];
-		b->collection[b->top - 1] = temp;
-		temp = a->collection[a->top];
-		a->collection[a->top] = a->collection[a->top - 1];
-		a->collection[a->top - 1] = temp;
-	}
+	(void)a;
+	(void)b;
 	ft_print_ss();
 }

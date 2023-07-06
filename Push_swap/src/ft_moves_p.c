@@ -12,22 +12,16 @@
 
 #include "../ft_push_swap.h"
 
-void	ft_pa(t_Stack *a, t_Stack *b)
+void	ft_pa(t_Stack_node *a, t_Stack_node *b)
 {
-	if (ft_is_empty(b) != 1 && ft_is_full(a) != 1)
-	{
-		ft_push(a, b->collection[b->top]);
-		ft_pop(b);
-	}
+	(void)a;
+	(void)b;
 	ft_print_pa();
 }
 
-void	ft_pb(t_Stack *a, t_Stack *b)
+void	ft_pb(t_Stack_node *a, t_Stack_node *b)
 {
-	if (ft_is_empty(a) != 1 && ft_is_full(b) != 1)
-	{
-		ft_push(b, a->collection[a->top]);
-		ft_pop(a);
-	}
+	(void)a;
+	(void)b;
 	ft_print_pb();
 }
