@@ -34,16 +34,16 @@ void	ft_add_node(t_Stack_node **stack, int value)
 		last = ft_find_last(*stack);
 		last->next = node;
 		node->prev = last;
-	}	
+	}
 }
 
 void	ft_free_stack(t_Stack_node *stack)
 {
-	t_Stack_node *temp;
+	t_Stack_node	*temp;
 
-	temp = NULL;
 	if (stack == NULL)
 		return ;
+	temp = NULL;
 	while (stack)
 	{
 		temp = stack->next;
@@ -62,25 +62,27 @@ int	ft_is_empty(t_Stack_node *stack)
 int	ft_push_node(t_Stack_node **pushed, t_Stack_node **popped)
 {
 	t_Stack_node	*node;
+	t_Stack_node	*last;
 
-	if (pushed == NULL)
+	if (*popped == NULL || popped == NULL)
 		return (0);
 	node = *popped;
 	*popped = (*popped)->next;
 	if (*popped)
 		(*popped)->prev = NULL;
 	node->prev = NULL;
-	// if (*pushed == NULL)
-	// {
-	// 	*pushed = node;
-	// 	node->next = NULL;
-	// }
-	// else
-	// {
-	// 	node->next = *pushed;
-	// 	node->next->prev = node;
-	// 	*pushed = node;
-	// }
-	ft_add_node(pushed, node->value);
+	if (*pushed == NULL)
+	{
+		*pushed = ft_find_last(node);
+		// ft_printf("(*pushed)->value: %d\n", (*pushed)->value);
+		// ft_printf("node->value: %d\n", node->value);
+		node->prev = NULL;
+	}
+	else
+	{
+		last = ft_find_last(*pushed);
+		last->next = node;
+		node->prev = last;
+	}
 	return (1);
 }

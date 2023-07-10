@@ -40,12 +40,15 @@ void	ft_print_stack(t_Stack_node *stack)
 {
 	int	i;
 	
-	i = 0;
+	if (stack == NULL)
+	    ft_printf("stack[0]:\tNULL\n");
+	i = ft_stacklen(stack) - 1;
+	stack = ft_find_last(stack);
 	while (stack)
 	{
 		ft_printf("stack[%d]:\t%d\n", i, stack->value);
-		stack = stack->next;
-		i++;
+		stack = stack->prev;
+		i--;
 	}
 }
 

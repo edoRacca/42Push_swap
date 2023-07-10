@@ -37,8 +37,9 @@ void	ft_push_swap(int n, char *s[])
 	ft_init(&a, n, s);
 	//ft_start_swap(a, b);
 	ft_add_node(&b, 12);
-	ft_push_node(&a, &b);
+	ft_pa(&a, &b);
 	ft_print_stack(a);
+	ft_print_stack(b);
 	ft_free_stack(a);
 	ft_free_stack(b);
 }

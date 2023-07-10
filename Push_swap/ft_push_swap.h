@@ -50,6 +50,9 @@ void			ft_free_stack(t_Stack_node *stack);
 int				ft_is_empty(t_Stack_node *stack);
 int				ft_push_node(t_Stack_node **pushed, t_Stack_node **popped);
 
+void			ft_pa(t_Stack_node **a, t_Stack_node **b);
+void			ft_pb(t_Stack_node **a, t_Stack_node **b);
+
 void			ft_print_sa(void);
 void			ft_print_sb(void);
 void			ft_print_ss(void);
