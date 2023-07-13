@@ -50,12 +50,12 @@ void	ft_ss(t_Stack_node **a, t_Stack_node **b)
 		return ;
 	if (ft_stack_size(*a) > 1 && ft_stack_size(*b) > 1)
 	{
-        ft_swap_2(a);
-        ft_swap_2(b);
-        ft_print_ss();
-    }
-    else if(ft_stack_size(*a) > 1 && ft_stack_size(*b) < 2)
-        ft_sa(a);
-    else if(ft_stack_size(*a) < 2 && ft_stack_size(*b) > 1)
-        ft_sb(b);
+		ft_swap_2(a);
+		ft_swap_2(b);
+		ft_print_ss();
+	}
+	else if(ft_stack_size(*a) > 1 && ft_stack_size(*b) < 2)
+		ft_sa(a);
+	else if(ft_stack_size(*a) < 2 && ft_stack_size(*b) > 1)
+		ft_sb(b);
 }
