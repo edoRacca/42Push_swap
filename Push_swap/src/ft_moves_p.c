@@ -14,12 +14,22 @@
 
 void	ft_pa(t_Stack_node **a, t_Stack_node **b)
 {
-	if (ft_push_node(a, b) == 1)
-	    ft_print_pa();
+	int	popped;
+	t_Stack_node	*lastb;
+
+	if (*b == NULL || b == NULL)
+		return ;
+	lastb = ft_findlast(*b);
+	popped = lastb->value;
+	ft_add_node(a, ft_new_node(popped));
+	ft_pop_node(b);
+	ft_print_pa();
 }
 
 void	ft_pb(t_Stack_node **a, t_Stack_node **b)
 {
-	if (ft_push_node(b, a) == 1)
-	    ft_print_pb();
+	// if (ft_push_node(b, a) == 1)
+	//     ft_print_pb();
+	(void)a;
+	(void)b;
 }

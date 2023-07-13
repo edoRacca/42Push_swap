@@ -12,31 +12,6 @@
 
 #include "../ft_push_swap.h"
 
-void	ft_add_node(t_Stack_node **stack, int value)
-{
-	t_Stack_node	*node;
-	t_Stack_node	*last;
-
-	if (stack == NULL)
-		return ;
-	node = malloc(sizeof(t_Stack_node));
-	if (node == NULL)
-		return ;
-	node->next = NULL;
-	node->value = value;
-	if (*stack == NULL)
-	{
-		*stack = node;
-		node->prev = NULL;
-	}
-	else
-	{
-		last = ft_find_last(*stack);
-		last->next = node;
-		node->prev = last;
-	}
-}
-
 void	ft_free_stack(t_Stack_node *stack)
 {
 	t_Stack_node	*temp;
@@ -59,30 +34,47 @@ int	ft_is_empty(t_Stack_node *stack)
 	return (!stack);
 }
 
-int	ft_push_node(t_Stack_node **pushed, t_Stack_node **popped)
+t_Stack_node	*ft_new_node(int value)
 {
-	t_Stack_node	*node;
+	t_Stack_node		*list;
+
+	list = malloc(sizeof(t_Stack_node));
+	if (!list)
+		return (NULL);
+	list->value = value;
+	list->next = NULL;
+	return (list);
+}
+
+void	ft_add_node(t_Stack_node **lst, t_Stack_node *new)
+{
 	t_Stack_node	*last;
 
-	if (*popped == NULL || popped == NULL)
-		return (0);
-	node = *popped;
-	*popped = (*popped)->next;
-	if (*popped)
-		(*popped)->prev = NULL;
-	node->prev = NULL;
-	if (*pushed == NULL)
+	last = ft_findlast(*lst);
+	if (!last)
+		*lst = new;
+	else
+		last->next = new;
+}
+
+void	ft_pop_node(t_Stack_node **stack)
+{
+	t_Stack_node	*node;
+
+	if (stack == NULL || *stack == NULL)
+		return ;
+	if ((*stack)->next == NULL)
 	{
-		*pushed = ft_find_last(node);
-		// ft_printf("(*pushed)->value: %d\n", (*pushed)->value);
-		// ft_printf("node->value: %d\n", node->value);
-		node->prev = NULL;
+		*stack = NULL;
+		free(*stack);
 	}
 	else
 	{
-		last = ft_find_last(*pushed);
-		last->next = node;
-		node->prev = last;
+		node = *stack;
+		while (node->next->next != NULL)
+			node = node->next;
+		free(node->next);
+		node->next = NULL;
 	}
-	return (1);
+	//return (stack);
 }

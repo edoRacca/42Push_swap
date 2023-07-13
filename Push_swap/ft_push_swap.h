@@ -22,13 +22,11 @@ typedef struct Stack_node{
 	int					above_middle;
 	int					cheapest;
 	struct Stack_node	*next;
-	struct Stack_node	*prev;
 }	t_Stack_node;
 
-t_Stack_node	*ft_find_last(t_Stack_node *stack);
-int				ft_stacklen(t_Stack_node *stack);
 void			ft_print_stack(t_Stack_node *stack);
 t_Stack_node	*ft_find_smallest(t_Stack_node *stack);
+t_Stack_node	*ft_findlast(t_Stack_node *lst);
 
 int				ft_check_err(int n, char *s[]);
 int				ft_check_str(int n, char *s[]);
@@ -45,10 +43,11 @@ void			ft_three_middle(t_Stack_node *a);
 
 int				ft_check_sorted(t_Stack_node *stack);
 
-void			ft_add_node(t_Stack_node **stack, int value);
 void			ft_free_stack(t_Stack_node *stack);
 int				ft_is_empty(t_Stack_node *stack);
-int				ft_push_node(t_Stack_node **pushed, t_Stack_node **popped);
+t_Stack_node	*ft_new_node(int value);
+void			ft_add_node(t_Stack_node **lst,t_Stack_node *new);
+void			ft_pop_node(t_Stack_node **stack);
 
 void			ft_pa(t_Stack_node **a, t_Stack_node **b);
 void			ft_pb(t_Stack_node **a, t_Stack_node **b);
