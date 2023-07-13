@@ -55,3 +55,21 @@ t_Stack_node	*ft_findlast(t_Stack_node *lst)
 		lst = lst->next;
 	return (lst);
 }
+
+int	ft_stack_size(t_Stack_node *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
+}
+
+t_Stack_node	*ft_find_first(t_Stack_node **stack)
+{
+	return (*stack);
+}

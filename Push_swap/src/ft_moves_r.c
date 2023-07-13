@@ -12,20 +12,20 @@
 
 #include "../ft_push_swap.h"
 
-void	ft_ra(t_Stack_node *a)
+void	ft_ra(t_Stack_node **a)
 {
 	(void)a;
 	ft_print_ra();
 }
 
-void	ft_rb(t_Stack_node *b)
+void	ft_rb(t_Stack_node **b)
 {
 	
 	(void)b;
 	ft_print_rb();
 }
 
-void	ft_rr(t_Stack_node *a, t_Stack_node *b)
+void	ft_rr(t_Stack_node **a, t_Stack_node **b)
 {
 	(void)a;
 	(void)b;

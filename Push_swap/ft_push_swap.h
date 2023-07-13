@@ -27,6 +27,8 @@ typedef struct Stack_node{
 void			ft_print_stack(t_Stack_node *stack);
 t_Stack_node	*ft_find_smallest(t_Stack_node *stack);
 t_Stack_node	*ft_findlast(t_Stack_node *lst);
+int				ft_stack_size(t_Stack_node *stack);
+t_Stack_node	*ft_find_first(t_Stack_node **stack);
 
 int				ft_check_err(int n, char *s[]);
 int				ft_check_str(int n, char *s[]);
@@ -51,6 +53,15 @@ void			ft_pop_node(t_Stack_node **stack);
 
 void			ft_pa(t_Stack_node **a, t_Stack_node **b);
 void			ft_pb(t_Stack_node **a, t_Stack_node **b);
+
+void			ft_sa(t_Stack_node **a);
+void			ft_sb(t_Stack_node **b);
+void			ft_ss(t_Stack_node **a, t_Stack_node **b);
+void			ft_swap_2(t_Stack_node **stack);
+
+void			ft_ra(t_Stack_node **a);
+void			ft_rb(t_Stack_node **b);
+void			ft_rr(t_Stack_node **a, t_Stack_node **b);
 
 void			ft_print_sa(void);
 void			ft_print_sb(void);

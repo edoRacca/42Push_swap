@@ -65,8 +65,8 @@ void	ft_pop_node(t_Stack_node **stack)
 		return ;
 	if ((*stack)->next == NULL)
 	{
-		*stack = NULL;
 		free(*stack);
+		*stack = NULL;
 	}
 	else
 	{
@@ -76,5 +76,4 @@ void	ft_pop_node(t_Stack_node **stack)
 		free(node->next);
 		node->next = NULL;
 	}
-	//return (stack);
 }
