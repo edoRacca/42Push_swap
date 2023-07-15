@@ -69,7 +69,7 @@ int	ft_stack_size(t_Stack_node *stack)
 	return (i);
 }
 
-t_Stack_node	*ft_find_first(t_Stack_node **stack)
+t_Stack_node	*ft_find_first(t_Stack_node *stack)
 {
-	return (*stack);
+	return (stack);
 }

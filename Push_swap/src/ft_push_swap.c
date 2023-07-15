@@ -34,10 +34,16 @@ void	ft_push_swap(int n, char *s[])
 	ft_init(&a, n, s);
 	ft_add_node(&b, ft_new_node(30));
     ft_add_node(&b, ft_new_node(40));
+    ft_add_node(&b, ft_new_node(50));
 	// ft_start_swap(a, b);
     // ft_sa(&a);
     // ft_sb(&b);
-    ft_ss(&a, &b);
+    //ft_ss(&a, &b);
+    // ft_rra(&a);
+    // ft_rrb(&b);
+    // ft_rrr(&a, &b);
+    ft_rra(&a);
+    // ft_rr(&a, &b);
 	ft_print_stack(a);
     ft_printf("\n");
 	ft_print_stack(b);
