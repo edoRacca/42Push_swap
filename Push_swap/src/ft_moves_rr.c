@@ -15,29 +15,16 @@
 //da cambiare swap tra nodi invece che valori
 void	ft_rev_rotate(t_Stack_node **stack)
 {
-	int				i;
-	int				temp;
-	t_Stack_node	*node;
+	t_Stack_node	*current;
 
-	i = 0;
-	node = *stack;
-	while (i < ft_stack_size(*stack) - 1)
-	{
-		if (i == ft_stack_size(*stack) - 2)
-		{
-			temp = node->value;
-			node->value = ft_findlast(node)->value;
-			ft_findlast(node)->value = temp;
-		}
-		else
-		{
-			temp = node->value;
-			node->value = node->next->value;
-			node->next->value = temp;
-		}
-		node = node->next;
-		i++;
-	}
+	current = *stack;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = *stack;
+	*stack = (*stack)->next;
+	current->next->next = NULL;
 }
 
 void	ft_rra(t_Stack_node **a)

@@ -35,13 +35,9 @@ int				ft_check_str(int n, char *s[]);
 int				ft_check_dup(int n, char *s[]);
 int				ft_check_bigint(int n, char *s[]);
 
+void			ft_start_swap(t_Stack_node **a, t_Stack_node **b);
 void			ft_push_swap(int n, char *s[]);
-void			ft_start_swap(t_Stack_node *a, t_Stack_node *b);
-void			ft_sort_2(t_Stack_node *a);
-
-void			ft_sort_3(t_Stack_node *a);
-void			ft_one_middle(t_Stack_node *a);
-void			ft_three_middle(t_Stack_node *a);
+void			ft_init(t_Stack_node **stack, int n, char *s[]);
 
 int				ft_check_sorted(t_Stack_node *stack);
 

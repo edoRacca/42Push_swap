@@ -12,6 +12,16 @@
 
 #include "../ft_push_swap.h"
 
+void	ft_start_swap(t_Stack_node **a, t_Stack_node **b)
+{
+	if (ft_check_sorted(*a) == 1)
+		return ;
+	if (ft_stack_size(*a) == 2)
+		ft_sa(a);
+	
+	
+}
+
 void	ft_init(t_Stack_node **stack, int n, char *s[])
 {
 	int	i;
@@ -35,15 +45,7 @@ void	ft_push_swap(int n, char *s[])
 	ft_add_node(&b, ft_new_node(30));
     ft_add_node(&b, ft_new_node(40));
     ft_add_node(&b, ft_new_node(50));
-	// ft_start_swap(a, b);
-    // ft_sa(&a);
-    // ft_sb(&b);
-    //ft_ss(&a, &b);
-    // ft_rra(&a);
-    // ft_rrb(&b);
-    // ft_rrr(&a, &b);
-    ft_rra(&a);
-    // ft_rr(&a, &b);
+	ft_start_swap(&a, &b);
 	ft_print_stack(a);
     ft_printf("\n");
 	ft_print_stack(b);

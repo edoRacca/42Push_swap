@@ -5,7 +5,7 @@ FT_PRINTF = libftprintf.a
 DIR = src/
 FILES = ft_main.c ft_push_swap.c ft_check_err.c ft_print_move_s.c ft_print_move_p.c \
 	ft_print_move_r.c ft_print_move_rr.c ft_stack_func.c ft_moves_s.c ft_moves_p.c \
-	ft_moves_r.c ft_moves_rr.c ft_sort_3.c ft_check_sorted.c ft_sort_all.c \
+	ft_moves_r.c ft_moves_rr.c ft_check_sorted.c ft_sort_all.c \
 	ft_stack_utils.c
 SRC = $(addprefix $(DIR), $(FILES))
 CC = gcc
