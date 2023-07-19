@@ -12,7 +12,6 @@
 
 #include "../ft_push_swap.h"
 
-//da cambiare swap tra nodi invece che valori
 void	ft_rev_rotate(t_Stack_node **stack)
 {
 	t_Stack_node	*current;
@@ -53,8 +52,8 @@ void	ft_rrr(t_Stack_node **a, t_Stack_node **b)
 		ft_rev_rotate(b);
 		ft_print_rrr();
 	}
-	else if(ft_stack_size(*a) > 1 && ft_stack_size(*b) < 2)
+	else if (ft_stack_size(*a) > 1 && ft_stack_size(*b) < 2)
 		ft_rra(a);
-	else if(ft_stack_size(*a) < 2 && ft_stack_size(*b) > 1)
+	else if (ft_stack_size(*a) < 2 && ft_stack_size(*b) > 1)
 		ft_rrb(b);
 }

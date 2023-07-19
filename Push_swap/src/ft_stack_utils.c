@@ -15,7 +15,7 @@
 void	ft_print_stack(t_Stack_node *stack)
 {
 	int	i;
-	
+
 	if (ft_is_empty(stack))
 		ft_printf("stack[0]:\tNULL\n");
 	i = 0;

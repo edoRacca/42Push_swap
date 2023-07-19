@@ -20,9 +20,9 @@ int	ft_check_sorted(t_Stack_node *stack)
 	while (stack->next)
 	{
 		n = stack->value;
-	    if (n < stack->next->value)
-	        return (0);
-	    stack = stack->next;
+		if (n < stack->next->value)
+			return (0);
+		stack = stack->next;
 	}
 	return (1);
 }

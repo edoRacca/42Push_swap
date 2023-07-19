@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.c                                          :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eraccane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/17 11:50:32 by eraccane          #+#    #+#             */
-/*   Updated: 2023/06/30 11:08:57 by eraccane         ###   ########.fr       */
+/*   Created: 2023/07/19 10:17:40 by eraccane          #+#    #+#             */
+/*   Updated: 2023/07/19 10:17:41 by eraccane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-int	ft_new_ac(char *av[])
+t_Stack_node	*ft_find_highest_node(t_Stack_node *stack)
 {
-	int	i;
+	int				highest;
+	t_Stack_node	*highest_node;
 
-	i = 0;
-	while (av[i])
-		i++;
-	return (i);
-}
-
-int	main(int ac, char *av[])
-{
-	int	flag;
-
-	flag = 0;
-	if (ac == 2)
+	if (stack == NULL)
+		return (NULL);
+	highest = INT_MIN;
+	while (stack)
 	{
-		av = ft_split(av[1], ' ');
-		ac = ft_new_ac(av);
-		flag = 1;
+		if (stack->value > highest)
+		{
+			highest = stack->value;
+			highest_node = stack;
+		}
+		stack = stack->next;
 	}
-	if (ft_check_err(ac, av) == 1)
-		write(STDERR_FILENO, "Error\n", 6);
-	else
-		ft_push_swap(ac, av, flag);
-	return (0);
+	return (highest_node);
 }

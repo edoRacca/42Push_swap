@@ -14,15 +14,19 @@
 # define FT_PUSH_SWAP_H
 
 # include "ft_printf/includes/ft_printf.h"
+# include <limits.h>
+# include <stdbool.h>
 
 typedef struct Stack_node{
 	int					value;
 	int					position;
 	int					move_price;
-	int					above_middle;
-	int					cheapest;
+	bool				above_middle;
+	bool				cheapest;
 	struct Stack_node	*next;
 }	t_Stack_node;
+
+int				ft_new_ac(char *av[]);
 
 void			ft_print_stack(t_Stack_node *stack);
 t_Stack_node	*ft_find_smallest(t_Stack_node *stack);
@@ -36,8 +40,8 @@ int				ft_check_dup(int n, char *s[]);
 int				ft_check_bigint(int n, char *s[]);
 
 void			ft_start_swap(t_Stack_node **a, t_Stack_node **b);
-void			ft_push_swap(int n, char *s[]);
-void			ft_init(t_Stack_node **stack, int n, char *s[]);
+void			ft_init(t_Stack_node **stack, int n, char *s[], int flag);
+void			ft_push_swap(int n, char *s[], int flag);
 
 int				ft_check_sorted(t_Stack_node *stack);
 
@@ -46,6 +50,15 @@ int				ft_is_empty(t_Stack_node *stack);
 t_Stack_node	*ft_new_node(int value);
 void			ft_add_node(t_Stack_node **lst,t_Stack_node *new);
 void			ft_pop_node(t_Stack_node **stack);
+
+void			ft_swap_3(t_Stack_node **stack);
+void			ft_swap(t_Stack_node **a, t_Stack_node **b);
+
+t_Stack_node	*ft_find_highest_node(t_Stack_node *stack);
+
+void			ft_set_position(t_Stack_node *stack);
+void			ft_set_cheapest(t_Stack_node *stack);
+void			ft_set_nodes(t_Stack_node *a, t_Stack_node *b);
 
 void			ft_pa(t_Stack_node **a, t_Stack_node **b);
 void			ft_pb(t_Stack_node **a, t_Stack_node **b);

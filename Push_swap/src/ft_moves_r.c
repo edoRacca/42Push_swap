@@ -54,8 +54,8 @@ void	ft_rr(t_Stack_node **a, t_Stack_node **b)
 		ft_rotate(b);
 		ft_print_rr();
 	}
-	else if(ft_stack_size(*a) > 1 && ft_stack_size(*b) < 2)
+	else if (ft_stack_size(*a) > 1 && ft_stack_size(*b) < 2)
 		ft_ra(a);
-	else if(ft_stack_size(*a) < 2 && ft_stack_size(*b) > 1)
+	else if (ft_stack_size(*a) < 2 && ft_stack_size(*b) > 1)
 		ft_rb(b);
 }
