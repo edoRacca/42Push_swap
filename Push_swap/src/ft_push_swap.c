@@ -20,8 +20,8 @@ void	ft_start_swap(t_Stack_node **a, t_Stack_node **b)
 		ft_sa(a);
 	else if (ft_stack_size(*a) == 3)
 		ft_swap_3(a);
-	else if (ft_stack_size(*a) == 5)
-		ft_swap(a, b);
+	else if (ft_stack_size(*a) < 6)
+		ft_simple_swap(a, b);
 }
 
 void	ft_init(t_Stack_node **stack, int n, char *s[], int flag)

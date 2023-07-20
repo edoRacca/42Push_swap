@@ -12,6 +12,37 @@
 
 #include "../ft_push_swap.h"
 
+void	ft_swap_5(t_Stack_node **a, t_Stack_node **b, int min, int max)
+{
+	int	i;
+	int	push;
+
+	i = ft_stack_size(*b);
+	while (i > 0)
+	{
+		push = ft_findlast(*b)->value;
+		if (push == min)
+			ft_pa(a, b);
+		else if (push == max)
+		{
+			ft_rra(a);
+			ft_pa(a, b);
+		}
+		else
+		{
+			if (!(push < ft_find_first(*a)->value && push < ft_findlast(*a)->value))
+			{
+				while (!(push > ft_find_first(*a)->value && push < ft_findlast(*a)->value))
+					ft_ra(a);
+			ft_pa(a, b);
+			ft_ra(a);
+			}
+			else
+				ft_pa(a, b);
+		}
+		i--;
+	}
+}
 
 /* Check where highest node is:
 	- firts node: do ft_sa()
@@ -28,7 +59,7 @@ void	ft_swap_3(t_Stack_node **stack)
 		ft_sa(stack);
 	else if ((*stack)->next == highest)
 	{
-		ft_rra(stack);
+		ft_ra(stack);
 		if (ft_findlast(*stack)->value > (*stack)->next->value)
 			ft_sa(stack);
 	}
@@ -37,14 +68,27 @@ void	ft_swap_3(t_Stack_node **stack)
 		if ((*stack)->value < (*stack)->next->value)
 		{
 			ft_sa(stack);
-			ft_rra(stack);
+			ft_ra(stack);
 		}
 		else
-			ft_ra(stack);
+			ft_rra(stack);
 	}
 }
 
-// void	ft_swap(t_Stack_node **a, t_Stack_node **b)
-// {
-
-// }
+void	ft_simple_swap(t_Stack_node **a, t_Stack_node **b)
+{
+	int	i;
+	int	min;
+	int	max;
+	
+	min = ft_find_smallest(*a)->value;
+	max = ft_find_highest_node(*a)->value;
+	i = ft_stack_size(*a);
+	while (i > 3)
+	{
+		ft_pb(a, b);
+		i--;
+	}
+	ft_swap_3(a);
+	ft_swap_5(a, b, min, max);
+}

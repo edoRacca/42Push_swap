@@ -20,7 +20,7 @@ void    ft_set_position(t_Stack_node *stack)
 	i = 0;
 	if (NULL == stack)
 		return ;
-	centerline = stack_len(stack) / 2;
+	centerline = ft_stack_size(stack) / 2;
 	while (stack)
 	{
 		stack->position = i;

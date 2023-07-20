@@ -52,7 +52,8 @@ void			ft_add_node(t_Stack_node **lst,t_Stack_node *new);
 void			ft_pop_node(t_Stack_node **stack);
 
 void			ft_swap_3(t_Stack_node **stack);
-void			ft_swap(t_Stack_node **a, t_Stack_node **b);
+void			ft_simple_swap(t_Stack_node **a, t_Stack_node **b);
+void			ft_swap_5(t_Stack_node **a, t_Stack_node **b, int min, int max);
 
 t_Stack_node	*ft_find_highest_node(t_Stack_node *stack);
 
