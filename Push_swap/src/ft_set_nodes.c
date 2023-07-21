@@ -64,5 +64,4 @@ void	ft_set_nodes(t_Stack_node *a, t_Stack_node *b)
 {
 	ft_set_position(a);
 	ft_set_position(b);
-	ft_set_cheapest(b);
 }

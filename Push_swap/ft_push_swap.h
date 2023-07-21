@@ -54,6 +54,7 @@ void			ft_pop_node(t_Stack_node **stack);
 void			ft_swap_3(t_Stack_node **stack);
 void			ft_simple_swap(t_Stack_node **a, t_Stack_node **b);
 void			ft_swap_5(t_Stack_node **a, t_Stack_node **b, int min, int max);
+void			ft_simple_rotation(t_Stack_node **a, t_Stack_node **b, int min, int push);
 
 t_Stack_node	*ft_find_highest_node(t_Stack_node *stack);
 

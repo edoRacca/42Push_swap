@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_moves_r.c                                       :+:      :+:    :+:   */
+/*   ft_moves_rr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eraccane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 11:50:32 by eraccane          #+#    #+#             */
-/*   Updated: 2023/06/30 11:09:25 by eraccane         ###   ########.fr       */
+/*   Updated: 2023/06/30 11:09:38 by eraccane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 void	ft_rev_rotate(t_Stack_node **stack)
 {
-	t_Stack_node	*node;
-	int				i;
+	t_Stack_node	*current;
 
-	i = 0;
-	while (i < ft_stack_size(*stack) - 1)
-	{
-		node = ft_findlast(*stack);
-		node->next = *stack;
-		*stack = (*stack)->next;
-		node->next->next = NULL;
-		i++;
-	}
+	current = *stack;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = *stack;
+	*stack = (*stack)->next;
+	current->next->next = NULL;
 }
 
 void	ft_rra(t_Stack_node **a)
