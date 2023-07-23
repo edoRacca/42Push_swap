@@ -15,7 +15,7 @@
 t_Stack_node	*ft_find_highest_node(t_Stack_node *stack)
 {
 	int				highest;
-	t_Stack_node	*highest_node;
+	t_Stack_node	*highestnode;
 
 	if (stack == NULL)
 		return (NULL);
@@ -25,9 +25,22 @@ t_Stack_node	*ft_find_highest_node(t_Stack_node *stack)
 		if (stack->value > highest)
 		{
 			highest = stack->value;
-			highest_node = stack;
+			highestnode = stack;
 		}
 		stack = stack->next;
 	}
-	return (highest_node);
+	return (highestnode);
+}
+
+t_Stack_node	*ft_find_cheapest_node(t_Stack_node *stack)
+{
+	if (stack == NULL)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
 }

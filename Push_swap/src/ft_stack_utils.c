@@ -21,7 +21,9 @@ void	ft_print_stack(t_Stack_node *stack)
 	i = 0;
 	while (stack)
 	{
-		ft_printf("stack[%d]:\t%d\n", i, stack->value);
+		ft_printf("stack[%d]:\n", i);
+		ft_printf("\tvalue:\t\t%d\n", stack->value);
+		ft_printf("\tposition:\t%d\n", stack->position);
 		stack = stack->next;
 		i++;
 	}
@@ -34,7 +36,7 @@ t_Stack_node	*ft_find_smallest(t_Stack_node *stack)
 
 	if (stack == NULL)
 		return (NULL);
-	smallest = stack->value;
+	smallest = INT_MAX;
 	while (stack)
 	{
 		if (stack->value < smallest)

@@ -23,6 +23,7 @@ typedef struct Stack_node{
 	int					move_price;
 	bool				above_middle;
 	bool				cheapest;
+	struct Stack_node   *target;
 	struct Stack_node	*next;
 }	t_Stack_node;
 
@@ -53,11 +54,19 @@ void			ft_pop_node(t_Stack_node **stack);
 
 void			ft_swap_3(t_Stack_node **stack);
 void			ft_simple_swap(t_Stack_node **a, t_Stack_node **b);
-void			ft_swap_5(t_Stack_node **a, t_Stack_node **b, int min, int max);
-void			ft_simple_rotation(t_Stack_node **a, t_Stack_node **b, int min, int push);
+void			ft_push_smallest(t_Stack_node **src, t_Stack_node **dest);
+
+void			ft_end_rotation(t_Stack_node **stack, t_Stack_node *cheapest, char c);
+void			ft_rev_double_rotation(t_Stack_node **a, t_Stack_node **b, t_Stack_node *cheapest);
+void			ft_double_rotation(t_Stack_node **a, t_Stack_node **b, t_Stack_node *cheapest);
+void			ft_move_nodes(t_Stack_node **a, t_Stack_node **b);
+void			ft_big_swap(t_Stack_node **a, t_Stack_node **b);
 
 t_Stack_node	*ft_find_highest_node(t_Stack_node *stack);
+t_Stack_node	*ft_find_cheapest_node(t_Stack_node *stack);
 
+void			ft_set_target(t_Stack_node *a, t_Stack_node *b);
+void			ft_set_price(t_Stack_node *a, t_Stack_node *b);
 void			ft_set_position(t_Stack_node *stack);
 void			ft_set_cheapest(t_Stack_node *stack);
 void			ft_set_nodes(t_Stack_node *a, t_Stack_node *b);
