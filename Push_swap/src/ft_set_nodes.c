@@ -54,13 +54,13 @@ void	ft_set_price(t_Stack_node *a, t_Stack_node *b)
 	sizeb = ft_stack_size(b);
 	while (b)
 	{
-		b->move_price = b->position;
+		b->move_price = sizeb - b->position - 1;
 		if (b->above_middle == false)
-			b->move_price = sizeb - b->position;
+			b->move_price = b->position + 1;
 		if (b->target->above_middle)
-			b->move_price += b->target->position;
+			b->move_price += sizea - b->target->position - 1;
 		else
-			b->move_price += sizea - (b->target->position);
+			b->move_price += b->target->position + 1;
 		b = b->next;
 	}
 }
@@ -79,11 +79,11 @@ void	ft_set_position(t_Stack_node *stack)
 	{
 		stack->position = i;
 		if (i <= centerline)
-			stack->above_middle = true;
-		else
 			stack->above_middle = false;
+		else
+			stack->above_middle = true;
 		stack = stack->next;
-		++i;
+		i++;
 	}
 }
 

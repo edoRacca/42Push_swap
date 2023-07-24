@@ -14,7 +14,7 @@
 
 void	ft_end_rotation(t_Stack_node **stack, t_Stack_node *cheapest, char c)
 {
-	while (*stack != cheapest)
+	while (ft_findlast(*stack) != cheapest)
 	{
 		if (c == 'a')
 		{
@@ -26,9 +26,9 @@ void	ft_end_rotation(t_Stack_node **stack, t_Stack_node *cheapest, char c)
 		else if(c == 'b')
 		{
 			if (cheapest->above_middle)
-				ft_ra(stack);
+				ft_rb(stack);
 			else
-				ft_rra(stack);
+				ft_rrb(stack);
 		}
 	}
 }
@@ -36,7 +36,7 @@ void	ft_end_rotation(t_Stack_node **stack, t_Stack_node *cheapest, char c)
 void	ft_rev_double_rotation(t_Stack_node **a, t_Stack_node **b, 
 													t_Stack_node *cheapest)
 {
-	while (*a != cheapest->target && *b != cheapest)
+	while (ft_findlast(*a) != cheapest->target && ft_findlast(*b) != cheapest)
 		ft_rr(a, b);
 	ft_set_position(*a);
 	ft_set_position(*b);
@@ -45,7 +45,7 @@ void	ft_rev_double_rotation(t_Stack_node **a, t_Stack_node **b,
 void	ft_double_rotation(t_Stack_node **a, t_Stack_node **b, 
 													t_Stack_node *cheapest)
 {
-	while (*a != cheapest->target && *b != cheapest)
+	while (ft_findlast(*a) != cheapest->target && ft_findlast(*b) != cheapest)
 		ft_rrr(a, b);
 	ft_set_position(*a);
 	ft_set_position(*b);
@@ -58,7 +58,7 @@ void	ft_move_nodes(t_Stack_node **a, t_Stack_node **b)
 	cheapest = ft_find_cheapest_node(*b);
 	if (cheapest->above_middle && cheapest->target->above_middle)
 		ft_double_rotation(a, b, cheapest);
-	else if (!(cheapest->above_middle && cheapest->target->above_middle))
+	else if (!(cheapest->above_middle) && !(cheapest->target->above_middle))
 		ft_rev_double_rotation(a, b, cheapest);
 	ft_end_rotation(b, cheapest, 'b');
 	ft_end_rotation(a, cheapest->target, 'a');
@@ -82,12 +82,11 @@ void	ft_big_swap(t_Stack_node **a, t_Stack_node **b)
 		ft_set_nodes(*a, *b);
 		ft_move_nodes(a, b);
 	}
-	ft_set_position(*a);
 	min = ft_find_smallest(*a);
 	if (min->above_middle)
-		while (*a != min)
+		while (ft_findlast(*a) != min)
 			ft_ra(a);
 	else
-		while (*a != min)
+		while (ft_findlast(*a) != min)
 			ft_rra(a);
 }

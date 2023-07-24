@@ -24,6 +24,8 @@ void	ft_print_stack(t_Stack_node *stack)
 		ft_printf("stack[%d]:\n", i);
 		ft_printf("\tvalue:\t\t%d\n", stack->value);
 		ft_printf("\tposition:\t%d\n", stack->position);
+		ft_printf("\tmove_price:\t%d\n", stack->move_price);
+		ft_printf("\tcheapest:\t%d\n", stack->cheapest);
 		stack = stack->next;
 		i++;
 	}

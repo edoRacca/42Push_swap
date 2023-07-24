@@ -59,9 +59,6 @@ void	ft_push_swap(int n, char *s[], int flag)
 	b = NULL;
 	ft_init(&a, n, s, flag);
 	ft_start_swap(&a, &b);
-	// ft_print_stack(a);
-	// ft_printf("\n");
-	// ft_print_stack(b);
 	ft_free_stack(a);
 	ft_free_stack(b);
 }
