@@ -39,4 +39,5 @@ int	main(int ac, char *av[])
 		write(STDERR_FILENO, "Error\n", 6);
 	else
 		ft_push_swap(ac, av, flag);
+	return (0);
 }
