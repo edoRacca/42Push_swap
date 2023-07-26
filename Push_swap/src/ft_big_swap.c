@@ -23,7 +23,7 @@ void	ft_end_rotation(t_Stack_node **stack, t_Stack_node *cheapest, char c)
 			else
 				ft_rra(stack);
 		}
-		else if(c == 'b')
+		else if (c == 'b')
 		{
 			if (cheapest->above_middle)
 				ft_rb(stack);
@@ -37,7 +37,7 @@ void	ft_rev_double_rotation(t_Stack_node **a, t_Stack_node **b,
 													t_Stack_node *cheapest)
 {
 	while (ft_findlast(*a) != cheapest->target && ft_findlast(*b) != cheapest)
-		ft_rr(a, b);
+		ft_rrr(a, b);
 	ft_set_position(*a);
 	ft_set_position(*b);
 }
@@ -46,7 +46,7 @@ void	ft_double_rotation(t_Stack_node **a, t_Stack_node **b,
 													t_Stack_node *cheapest)
 {
 	while (ft_findlast(*a) != cheapest->target && ft_findlast(*b) != cheapest)
-		ft_rrr(a, b);
+		ft_rr(a, b);
 	ft_set_position(*a);
 	ft_set_position(*b);
 }

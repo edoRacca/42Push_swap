@@ -44,3 +44,29 @@ t_Stack_node	*ft_find_cheapest_node(t_Stack_node *stack)
 	}
 	return (NULL);
 }
+
+long	ft_atol(char *s)
+{
+	int		i;
+	int		neg;
+	long	ris;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i] == '\t' || s[i] == ' ' || s[i] == '\n'
+		|| s[i] == '\v' || s[i] == '\f' || s[i] == '\r')
+		i++;
+	neg = 1;
+	if (s[i] == '-')
+		neg = -1;
+	if (neg == -1 || s[i] == '+')
+		i++;
+	ris = 0;
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		ris = (ris * 10) + (s[i] - '0');
+		i++;
+	}
+	return (ris * neg);
+}

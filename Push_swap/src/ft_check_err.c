@@ -33,7 +33,7 @@ int	ft_check_bigint(int n, char *s[])
 	i = 1;
 	while (i < n)
 	{
-		nbr = ft_atoi(s[i]);
+		nbr = ft_atol(s[i]);
 		if (nbr > 2147483647 || nbr < -2147483648)
 			return (1);
 		i++;
@@ -71,17 +71,16 @@ int	ft_check_str(int n, char *s[])
 	i = 1;
 	while (i < n)
 	{
-		if (ft_atoi(s[i]) == 0)
+		j = 0;
+		if ((s[i][0] == '+' || s[i][0] == '-') && 
+			!(s[i][1] >= '0' && s[i][1] <= '9'))
+			return (1);
+		j++;
+		while (s[i][j])
 		{
-			j = 0;
-			if ((s[i][j] == '\0') || ft_check_space(s[i]) == 1)
+			if (!(s[i][j] >= '0' && s[i][j] <= '9'))
 				return (1);
-			while (s[i][j])
-			{
-				if (ft_isalpha(s[i][j]) == 1)
-					return (1);
-				j++;
-			}
+			j++;
 		}
 		i++;
 	}
