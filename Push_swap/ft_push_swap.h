@@ -28,6 +28,7 @@ typedef struct Stack_node{
 }	t_Stack_node;
 
 int				ft_new_ac(char *av[]);
+void			ft_free_star(char **str);
 
 void			ft_print_stack(t_Stack_node *stack);
 t_Stack_node	*ft_find_smallest(t_Stack_node *stack);
@@ -35,7 +36,7 @@ t_Stack_node	*ft_findlast(t_Stack_node *lst);
 int				ft_stack_size(t_Stack_node *stack);
 t_Stack_node	*ft_find_first(t_Stack_node *stack);
 
-int				ft_check_err(int n, char *s[]);
+int				ft_check_err(int n, char *s[], int flag);
 int				ft_check_str(int n, char *s[]);
 int				ft_check_dup(int n, char *s[]);
 int				ft_check_bigint(int n, char *s[]);

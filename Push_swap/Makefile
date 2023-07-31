@@ -1,4 +1,4 @@
-### VARIABLES ###
+## VARIABLES ###
 
 NAME = push_swap
 FT_PRINTF = libftprintf.a

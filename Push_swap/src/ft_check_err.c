@@ -75,6 +75,9 @@ int	ft_check_str(int n, char *s[])
 		if ((s[i][0] == '+' || s[i][0] == '-') && 
 			!(s[i][1] >= '0' && s[i][1] <= '9'))
 			return (1);
+		if (!(s[i][0] >= '0' && s[i][0] <= '9') &&
+			!(s[i][1] >= '0' && s[i][1] <= '9'))
+			return (1);
 		j++;
 		while (s[i][j])
 		{
@@ -88,10 +91,16 @@ int	ft_check_str(int n, char *s[])
 }
 
 //check all error types
-int	ft_check_err(int n, char *s[])
+int	ft_check_err(int n, char *s[], int flag)
 {
-	if ((ft_check_str(n, s) == 1) || (ft_check_dup(n, s) == 1) || 
-		(ft_check_bigint(n, s) == 1))
+	if (((ft_check_str(n, s) == 1) || (ft_check_dup(n, s) == 1) || 
+		(ft_check_bigint(n, s) == 1)) && flag == 0)
 		return (1);
+	else if(((ft_check_str(n, s) == 1) || (ft_check_dup(n, s) == 1) || 
+		(ft_check_bigint(n, s) == 1)) && flag == 1)
+	{
+		ft_free_star(s);
+		return (1);
+	}
 	return (0);
 }

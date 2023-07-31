@@ -61,4 +61,6 @@ void	ft_push_swap(int n, char *s[], int flag)
 	ft_start_swap(&a, &b);
 	ft_free_stack(a);
 	ft_free_stack(b);
+	if (flag == 1)
+		ft_free_star(s);
 }

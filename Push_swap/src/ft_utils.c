@@ -70,3 +70,14 @@ long	ft_atol(char *s)
 	}
 	return (ris * neg);
 }
+
+void	ft_free_star(char **str)
+{
+	int i;
+	i = 0;
+	while (str[i])
+		i++;
+	while (i >= 0)
+		free(str[i--]);
+	free(str);
+}

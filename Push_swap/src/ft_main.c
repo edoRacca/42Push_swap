@@ -35,7 +35,7 @@ int	main(int ac, char *av[])
 		ac = ft_new_ac(av);
 		flag = 1;
 	}
-	if (ft_check_err(ac, av) == 1)
+	if (ft_check_err(ac, av, flag) == 1)
 		write(STDERR_FILENO, "Error\n", 6);
 	else
 		ft_push_swap(ac, av, flag);
